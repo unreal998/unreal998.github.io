@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<title> Bedrock test pages</title>
+<style type="text/css">
+body {
+	background:white;
+}
+
+ul li {
+	padding:2px 0;
+	width:300px;
+	border:none;
+	list-style-type: decimal-leading-zero;
+    background: lightblue;
+    margin: 5px;
+	border:2px solid lightgreen;
+	padding:5px;
+}
+ul li:hover, li:focus {
+	border:2px solid blue;
+}
+ul li a {
+	padding:0;
+}
+#exit {
+	background: lightgreen;
+	border:2px solid green;
+	padding:5px;
+}
+
+#exit:hover, #exit:focus {
+	background: lightblue;
+	border:2px solid blue;
+	padding:5px;
+}
+</style>
+<link rel="stylesheet" href="../base.css"></link>
+<script>
+document.onkeydown=keyEventHandler;
+function keyEventHandler(e)  {
+  	switch (e.keyCode)	{
+		case VK_ENTER:
+			play_media();
+			break;
+  		case VK_BACK:
+			e.preventDefault();
+			window.history.go(-1);
+			break;
+  	}
+}
+
+function redirectTo(e,path) {
+	switch (e.keyCode)	{
+		case VK_ENTER:
+			window.location = path;
+			break;
+
+	}
+}
+</script>
+</head>
+<body onload="document.getElementById('li-0').focus();">
+	<h1 style="background:lightgreen;padding:10px;">
+		<em>Test Links for Bedrock</em>
+		<input type="button" id="exit" onclick="javascript:window.history.go(-1)" style="margin-left:100px;nav-index:7;nav-down:#li-0;" value="Back" />
+	</h1>
+	<h1></h1>
+	<ul>
+	<li id='li-0' tabindex='1' style='nav-index:1;nav-up:#exit;nav-down:#li-1'  onkeydown="redirectTo(event,'http://192.168.1.110:5000');">
+		<a href="http://192.168.1.110:5000">Open URL "http://192.168.1.110:5000"</a>
+	</li>
+	<li id='li-1' tabindex='2' style='nav-index:2;nav-up:#0;nav-down:#li-2'   onkeydown="redirectTo(event,'https://smart-alliance.videoland.com');">
+		<a href="https://smart-alliance.videoland.com">Open URL "https://smart-alliance.videoland.com"</a>
+	</li>
+	<li id='li-2' tabindex='3' style='nav-index:3;nav-up:#1;nav-down:#li-3'   onkeydown="redirectTo(event,'https://sta-test-branch--smart-alliance.tvjs.preview.videoland.bedrock.tech/');">
+		<a href="https://sta-test-branch--smart-alliance.tvjs.preview.videoland.bedrock.tech/">Open URL "https://sta-test-branch--smart-alliance.tvjs.preview.videoland.bedrock.tech/"</a>
+	</li>
+	</ul>
+</body>
+</html>
